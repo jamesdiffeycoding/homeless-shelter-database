@@ -1,6 +1,9 @@
 import compStyles from "./referrallinks.css";
 import Link from "next/link";
 
+//links with 🔖 are genuine links - other links to NHS
+//links now open on a separate page
+
 export default function ReferralLinksComp() {
   return (
     <>
