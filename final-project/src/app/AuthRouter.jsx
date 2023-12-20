@@ -76,7 +76,7 @@ export default function AuthRouter({
   if (!session) {
     return <>
       <LogoForLogin></LogoForLogin>
-      <div className="flexbox-center"><h1 className="white-font">Home Horizon</h1>
+      <div className="flexbox-center"><h1 data-test="hero-heading" className="white-font">Home Horizon</h1>
       </div>
       <Auth supabaseClient={supabase} appearance={{
             theme: ThemeSupa,
