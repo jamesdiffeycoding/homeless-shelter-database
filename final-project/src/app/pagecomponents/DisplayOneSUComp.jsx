@@ -187,8 +187,17 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
   const [suData, setSuData] = useState(allFetchedDataAboutSpecificSU);
 
   // FUNCTION FOR UPDATING CONTEXT BEFORE PUSH
-  function updateContext(table, column, newInputValue) {
-    allFetchedDataAboutSpecificSU[table][0][column] = newInputValue;
+  function updateContext(table, column, newInputValue, columnSet, userID) {
+    if (allFetchedDataAboutSpecificSU[table].length ==0) {
+      let object = columnSet;
+      object["user_id"] = userID;
+      object[column] = newInputValue;
+      allFetchedDataAboutSpecificSU[table][0] = object
+      console.log(allFetchedDataAboutSpecificSU)
+    } else {
+      allFetchedDataAboutSpecificSU[table][0][column] = newInputValue;
+      console.log(allFetchedDataAboutSpecificSU)
+    }
     let updatedData = allFetchedDataAboutSpecificSU;
     setSuData(updatedData);
     console.log(suData);
@@ -225,6 +234,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 
     // if there is no data, -> INSERT
     else {
+      console.log(suData[table][0])
       await supabase
         .from("strengths")
         .insert(suData[table][0])

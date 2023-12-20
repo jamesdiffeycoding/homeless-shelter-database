@@ -136,7 +136,7 @@ export default function EditablePair({dataLabel, table, column, editMode, update
 
     // HANDLE CHANGE ON INPUT: (1) UPDATE TEXT (2) UPDATE CONTEXT
     const handleChange= (event) => {
-        updateContext(table, column, event.target.value)
+        updateContext(table, column, event.target.value, medicalColumnsBlank, 183)
         switch (table) {
           case "strengths":
             setInputStrengths(strengthsColumns[column]=event.target.value);
