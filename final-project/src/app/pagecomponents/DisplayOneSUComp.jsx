@@ -14,23 +14,15 @@ ________________________________________________________________________________
 import compStyles from "./displayonesu.css";
 import Link from "next/link";
 import Image from "next/image.js";
-import SUDataValuePair from "../babycomponents/SUDataValuePair";
 import { useState } from "react";
-import { formatDate } from "../displayallsu/helper";
 import EditablePair from "../babycomponents/EditablePair";
 import React from "react";
 import ServiceUserContext from "../babycomponents/serviceUserContext";
-import PairStrengths from "../babycomponents/EditablePair";
 import { toast } from "sonner";
 import { supabase } from "../AuthRouter";
 export const dynamic = "force-dynamic"; //forces next js to revaluate data preventing caching
 export const revalidate = 0; //tells supabase to not use caching
 
-// SUPABASE
-// import { createClient } from "@supabase/supabase-js";
-// const supaurl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-// const supakey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-// const supabase = createClient(supaurl, supakey);
 
 // DISPLAY ONE SU COMPONENT ------------------------------------------------------------------
 export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
@@ -126,15 +118,15 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
       setEditStatusProfile(false);
     }
   }
-  // edit_history
+  // edit_employment
 
-  const [editStatusHistory, setEditStatusHistory] = useState(false);
-  function handleEditHistory() {
-    setEditStatusHistory("inline");
-    if (editStatusHistory == false) {
-      setEditStatusHistory(true);
+  const [editStatusEmployment, setEditStatusEmployment] = useState(false);
+  function handleEditEmployment() {
+    setDisplayStatusEmployment("inline");
+    if (editStatusEmployment == false) {
+      setEditStatusEmployment(true);
     } else {
-      setEditStatusHistory(false);
+      setEditStatusEmployment(false);
     }
   }
   // edit_comments
@@ -261,6 +253,23 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
     //   console.log(`Data did not exist, so data will be inserted for user no. "${userID}".`);
     // }
   }
+  let interestStatement = `${service_users[0]?.first_name} loves `
+  if (strengths[0]?.interest_text_one != undefined) {
+    interestStatement += strengths[0]?.interest_text_one.toLowerCase()
+  }
+  if (strengths[0]?.interest_text_two != undefined) {
+    interestStatement += ", "
+    interestStatement += strengths[0]?.interest_text_two.toLowerCase()
+  }
+  if (strengths[0]?.interest_text_three != undefined) {
+    interestStatement += " and "
+    interestStatement += strengths[0]?.interest_text_three.toLowerCase()
+    interestStatement += "."
+  }
+  if(strengths[0]?.interest_text_one==undefined && strengths[0]?.interest_text_two==undefined && strengths[0]?.interest_text_three == undefined) {
+    interestStatement = `Why not ask what ${service_users[0]?.first_name} loves?`
+  }
+
 
   // RETURN
   return (
@@ -286,11 +295,12 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
           <section className="global-welcome">
             <h1 className="global-heading">{service_users[0]?.first_name}'s profile
             </h1>
-            <p className="global-description">{service_users[0]?.first_name} loves... {strengths[0]?.interest_text_one.toLowerCase() || ""},  {strengths[0]?.interest_text_two.toLowerCase() || ""} and  {strengths[0]?.interest_text_three.toLowerCase() || "being at the shelter"}.</p>
+            {/* INTERESTS IF THEY */}
+            <p className="global-description">{interestStatement}</p>
           </section>
           <div className="onesu-avatar global-rounded-border">
             <Image
-              src={"/avatar2.svg"}
+              src={"/placeholderpersonblue.png"}
               alt="su avatar"
               width={120}
               height={120}
@@ -325,7 +335,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
             </div>
           </div>
           <div
-            className="onesu-toggle-information-flexbox white-font"
+            className="onesu-toggle-information-flexbox black-font"
             style={{ display: displayStatusProfile }}
           >
             <ServiceUserContext.Provider value={suData}>
@@ -386,6 +396,20 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 table={"service_users"}
                 column={"email"}
                 type={"email"}
+                updateContext={updateContext}
+                editMode={editStatusProfile}
+              ></EditablePair>
+                <EditablePair
+                dataLabel="Language requirements"
+                table={"service_users"}
+                column={"languages"}
+                updateContext={updateContext}
+                editMode={editStatusProfile}
+              ></EditablePair>
+                <EditablePair
+                dataLabel="Accomodation needs"
+                table={"service_users"}
+                column={"accomodation_needs"}
                 updateContext={updateContext}
                 editMode={editStatusProfile}
               ></EditablePair>
@@ -686,7 +710,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 className="link"
               />
             </div>
-            <div className="onesu-toggle-edit" onClick={handleEditHistory}>
+            <div className="onesu-toggle-edit" onClick={handleEditEmployment}>
               Edit
             </div>
           </div>
@@ -700,7 +724,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 table={"employment_status"}
                 column={"job_description"}
                 updateContext={updateContext}
-                editMode={editStatusHistory}
+                editMode={editStatusEmployment}
               ></EditablePair>
               <EditablePair
                 dataLabel="Start date"
@@ -708,7 +732,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 column={"start_date"}
                 type={"date"}
                 updateContext={updateContext}
-                editMode={editStatusHistory}
+                editMode={editStatusEmployment}
               ></EditablePair>
               <EditablePair
                 dataLabel="End date"
@@ -716,16 +740,16 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 column={"end_date"}
                 type={"date"}
                 updateContext={updateContext}
-                editMode={editStatusHistory}
+                editMode={editStatusEmployment}
               ></EditablePair>
               <br></br>
               <div className="onesu-update-container">
                 <div
                   className="onesu-update-btn"
-                  style={{ display: editStatusHistory ? "inline" : "none" }}
+                  style={{ display: editStatusEmployment ? "inline" : "none" }}
                   onClick={function () {
                     updateOrInsertData("employment_status");
-                    setEditStatusHistory(false);
+                    setEditStatusEmployment(false);
                   }}
                 >
                   UPDATE

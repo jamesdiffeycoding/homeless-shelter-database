@@ -19,10 +19,10 @@ export default function EditablePair({dataLabel, table, column, editMode, update
     
     // ------- STATE MANAGEMENT FOR INPUTS, UPDATES AND INSERTION ----------------------
     // 
-    const strengthsColumnsBlank = {strengths_text_one:"", strengths_text_two:"", strengths_text_three:""}; 
+    const strengthsColumnsBlank = {strengths_text_one:"", strengths_text_two:"", strengths_text_three:"", interest_text_one: "", interest_text_two: "", interest_text_three:""}; 
     const [inputStrengths, setInputStrengths] = useState(strengthsColumnsBlank) 
-    const {user_id, strengths_text_one, strengths_text_two, strengths_text_three} = inputStrengths 
-    const strengthsColumns = {user_id, strengths_text_one, strengths_text_two, strengths_text_three};
+    const {user_id, strengths_text_one, strengths_text_two, strengths_text_three, interest_text_one, interest_text_two, interest_text_three} = inputStrengths 
+    const strengthsColumns = {user_id, strengths_text_one, strengths_text_two, strengths_text_three, interest_text_one, interest_text_two, interest_text_three};
     // input- medical _____________________
   // 1 blank columns
   const medicalColumnsBlank = {medical_id: "",

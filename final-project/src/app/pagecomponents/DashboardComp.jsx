@@ -71,7 +71,8 @@ export default function DashboardComp({staffName}) {
         <div className="dash-grid">
           <div className="dash-grid-row-1-top-bar">
           </div>
-          <div className="dash-grid-row-2-text-section">Welcome to the Home Horizon Database App, providing Home Shelter staff with practical solutions! We are thrilled to have you on board, as your contribution makes a significant impact in providing support to those in need. This app is designed specifically for Home Horizon, a homeless shelter that relies on dedicated individuals like you to make this amazing service possible.
+          <div className="dash-grid-row-2-text-section">Welcome to the Home Horizon App, an easy-to-use mobile-friendly solution to homeless shelter data-collection needs. View, edit and add new service user's information in just a few clicks.
+            <p>We believe homeless shelter staff like you deserve the best technology to help them provide the amazing service our communities need. We hope you'll find this useful.</p>
           </div>
           <div className="dash-grid-row-3-button dash-grid-row-3-button1">
             <Link href="/displayallsu" passHref legacyBehavior>

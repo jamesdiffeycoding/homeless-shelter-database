@@ -38,6 +38,8 @@ export default function AddSUComp({ staffId, staffName }) {
     dob: "",
     ni_number: "",
     phone: "",
+    accomodation_needs: "",
+    languages: "",
     emergency_contact_name: "",
     emergency_contact_relationship: "",
     email: "",
@@ -55,6 +57,8 @@ export default function AddSUComp({ staffId, staffName }) {
     dob,
     ni_number,
     phone,
+    accomodation_needs,
+    languages,
     emergency_contact_name,
     emergency_contact_relationship,
     email,
@@ -70,6 +74,8 @@ export default function AddSUComp({ staffId, staffName }) {
     dob,
     ni_number,
     phone,
+    accomodation_needs,
+    languages,
     emergency_contact_name,
     emergency_contact_relationship,
     email,
@@ -331,23 +337,50 @@ export default function AddSUComp({ staffId, staffName }) {
 
         </div>
 
-        {/* PROFILE - phone */}
-        <div className="addsu-inputcontainer">
-          <label htmlFor="phone" id="phone_label" className="addsu-labeltext">
-            Phone:{" "}
+                {/* PROFILE - accomodation needs  */}
+                <div className="addsu-inputcontainer">
+          <label
+            htmlFor="accomodation needs"
+            id="accomodation needs"
+            className="addsu-labeltext"
+          >
+            Accomodation needs:{" "}
           </label>
           <input
-            // the type being tel means that the input will display a number pad on mobile devices
-            type="tel"
-            maxLength={11}
-            // pattern to ensure only 11 numbers are entered
-            pattern="[0-9]{11}"
-            placeholder="Phone Number"
-            id="phone"
+            type="text"
+            placeholder="Accomodation needs"
+            id="accomodation needs"
             className="addsu-inputfield"
-            value={phone}
+            value={accomodation_needs}
             onChange={(e) =>
-              setInputProfile({ ...inputProfile, phone: e.target.value })
+              setInputProfile({
+                ...inputProfile,
+                accomodation_needs: e.target.value,
+              })
+            }
+          />
+        </div>
+
+                {/* PROFILE - languages  */}
+                <div className="addsu-inputcontainer">
+          <label
+            htmlFor="languages"
+            id="languages"
+            className="addsu-labeltext"
+          >
+            Languages:{" "}
+          </label>
+          <input
+            type="text"
+            placeholder="Languages"
+            id="languages"
+            className="addsu-inputfield"
+            value={languages}
+            onChange={(e) =>
+              setInputProfile({
+                ...inputProfile,
+                languages: e.target.value,
+              })
             }
           />
         </div>

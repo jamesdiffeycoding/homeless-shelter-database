@@ -14,7 +14,7 @@ export default function Header({ staffName }) {
         </div>
         <Image
               className="global-button-shadow"
-              src="/placeholderperson.png"
+              src="/placeholderpersonorange.png"
               alt="profile image"
               width="55"
               height="60"
