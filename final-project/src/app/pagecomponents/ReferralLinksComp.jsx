@@ -2,7 +2,7 @@ import compStyles from "./referrallinks.css";
 import Link from "next/link";
 
 //links with 🔖 are genuine links - other links to NHS
-//links now open on a separate page
+//links now open on a separate page (target blank). LegacyBehaviour lets us nest an <a> tag so we can do this (not possible with just LINK)
 
 export default function ReferralLinksComp() {
   return (

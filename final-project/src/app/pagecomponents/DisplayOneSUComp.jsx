@@ -640,7 +640,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 editMode={editStatusMedical}
               ></EditablePair>
               <EditablePair
-                dataLabel="Substance abuse disclosures"
+                dataLabel="Substance misuse disclosures"
                 table={"medical"}
                 column={"substance_abuse_disclosures"}
                 updateContext={updateContext}
@@ -800,6 +800,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 column={"comment_date"}
                 updateContext={updateContext}
                 editMode={editStatusComments}
+                type={"date"}
               ></EditablePair>
               <EditablePair
                 dataLabel="Staff Name"
@@ -859,6 +860,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
                 column={"date_entry"}
                 updateContext={updateContext}
                 editMode={editStatusResidence}
+                type={"date"}
               ></EditablePair>
               <EditablePair
                 dataLabel="Current status"
