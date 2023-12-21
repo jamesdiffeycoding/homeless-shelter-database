@@ -52,7 +52,7 @@ body{
 
   @media screen and (max-width: 530px) {
     .global-content {
-        display:flex;
+        /* display:flex; */
     }
 }
 
