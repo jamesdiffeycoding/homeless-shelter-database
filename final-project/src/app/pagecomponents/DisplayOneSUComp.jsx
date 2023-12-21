@@ -132,7 +132,7 @@ const [suDataState, setSuDataState] = useState(allFetchedDataAboutSpecificSU);
 function updateContext(table, column, newInputValue) {
   allFetchedDataAboutSpecificSU[table][0][column] = newInputValue;
   let updatedData = allFetchedDataAboutSpecificSU;
-  setsuDataState(updatedData);
+  setSuDataState(updatedData);
   console.log(suDataState);
 }
 // END OF FUNCTION FOR UPDATING CONTEXT VALUES OF SU INFORMATION BEFORE SENDING TO DATABASE
