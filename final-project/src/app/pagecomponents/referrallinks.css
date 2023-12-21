@@ -1,3 +1,17 @@
+@media screen and (max-width: 600px) {
+    .global-content{
+       min-width: 450px; 
+    }
+}
+
+/* .global-content{
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid white;
+    font-size: 14px;
+} */
+
 .referrallinks-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -5,9 +19,6 @@
     row-gap: 0.5rem;
 }
 
-.referrallinks-grid-card{
-
-}
 
 .referrallinks-grid-card {
     font-weight: bold;
