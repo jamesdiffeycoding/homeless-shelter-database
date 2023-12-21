@@ -50,6 +50,12 @@ body{
 
   /* CONTENT-BOXES */
 
+  @media screen and (max-width: 530px) {
+    .global-content {
+        display:flex;
+    }
+}
+
 .global-content{
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
     border-radius: 20px;
