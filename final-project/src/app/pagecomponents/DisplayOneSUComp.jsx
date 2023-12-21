@@ -348,9 +348,7 @@ return (
           <span>Comments</span>
           <Image src={ displayStatusComments === "none" ? "/arrowup.png" : "/arrowdown.png" } alt="collapse headings button" width="50" height="15" className="link" />
         </div>
-        <div className="onesu-toggle-edit" onClick={handleEditComments}>
-          Edit
-        </div>
+        <div className="onesu-toggle-edit" onClick={handleEditComments}> Edit </div>
       </div>
       <div className="onesu-toggle-information-flexbox" style={{ display: displayStatusComments }} >
         <ServiceUserContext.Provider value={suDataState}>
@@ -363,11 +361,12 @@ return (
               UPDATE
             </div>
           </div>
-        </div>
-    {/* RESIDENCE */}
-
-        <div className="onesu-toggle-edit" onClick={handleEditResidence}> Edit </div>
+        </ServiceUserContext.Provider>
       </div>
+    </div>
+
+    {/* RESIDENCE */}
+      <div className="onesu-toggle-edit" onClick={handleEditResidence}> Edit </div>
       <div className="onesu-toggle-information-flexbox" style={{ display: displayStatusResidence }} >
         <ServiceUserContext.Provider value={suDataState}>
           <EditablePair dataLabel="Date entry" table={"residence"} column={"date_entry"} updateContext={updateContext} editMode={editStatusResidence} ></EditablePair>
@@ -381,7 +380,6 @@ return (
           </div>
         </ServiceUserContext.Provider>
       </div>
-    </div>
 </section>
 
   </>
