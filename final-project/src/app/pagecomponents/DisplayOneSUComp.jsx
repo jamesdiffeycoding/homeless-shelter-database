@@ -363,17 +363,9 @@ return (
               UPDATE
             </div>
           </div>
-        </ServiceUserContext.Provider>
-      </div>
-    </div>
-
-    {/* RESIDENCE BOX */}
-    <div className="onesu-toggle-container">
-      <div className="onesu-toggle-header">
-        <div className="onesu-toggle-title" onClick={handleDisplayClickResidence} >
-          <span>Residence history</span>
-          <Image src={ displayStatusResidence === "none" ? "/arrowup.png" : "/arrowdown.png" } alt="collapse headings button" width="50" height="15" className="link" />
         </div>
+    {/* RESIDENCE */}
+
         <div className="onesu-toggle-edit" onClick={handleEditResidence}> Edit </div>
       </div>
       <div className="onesu-toggle-information-flexbox" style={{ display: displayStatusResidence }} >
@@ -391,7 +383,6 @@ return (
       </div>
     </div>
 </section>
-
 
   </>
 );

@@ -16,17 +16,28 @@ import EditSUComp from "./pagecomponents/EditSUComp";
 import ReferralLinksComp from "./pagecomponents/ReferralLinksComp";
 import LogoForLogin from "./babycomponents/LogoForLogin";
 
+//Supabase client setup. Exported to other pages
+
 const supabaseURL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 export const supabase = createClient(supabaseURL, supabaseKey);
+
+//pagename and allFetchedDataAboutSpecificSU are passed in as props
 
 export default function AuthRouter({
   pageName,
   allFetchedDataAboutSpecificSU,
 }) {
   
+  //supabase sets up a session object. 
+  //The session object contains tokens as well as the uuid and email of the person logging in
   const [session, setSession] = useState(null);
   const [staffName, setStaffName] = useState(null);
+
+  //useeffect is needed as these are async functions in a client-side component
+  //this useeffect combines 2 different async functions
+  //1) one to set up the session
+  //2) fetch staff name
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,9 +46,9 @@ export default function AuthRouter({
           data: { session },
         } = await supabase.auth.getSession();
         setSession(session);
-
+// we are getting the uuid of the person logged in here
         const userDetails = session.user.id;
-
+//we use this uuid to fetch the name of the staff member from supabase
         try {
           const { data, error } = await supabase
             .from("staff_profile")
@@ -69,15 +80,18 @@ export default function AuthRouter({
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
-
+//useeffect cleanup function
     return () => subscription.unsubscribe();
   }, []);
 
+//if there is no session(not logged in), you are redirected to the login page
   if (!session) {
     return <>
       <LogoForLogin></LogoForLogin>
-      <div className="flexbox-center"><h1 className="white-font">Home Horizon</h1>
+      <div className="flexbox-center"><h1 data-test="hero-heading" className="white-font">Home Horizon</h1>
       </div>
+
+      //this is where you can customise the display of the supabase auth.
       <Auth supabaseClient={supabase} appearance={{
             theme: ThemeSupa,
             variables: {
@@ -92,11 +106,14 @@ export default function AuthRouter({
               label: {color: 'white', fontWeight:'bold'},
               button: {boxShadow: '2px 2px white'}
             }
+            //this turns off the google, github etc... links
           }} providers={[]} showLinks={false}/>
     </>
   }
   // redirector
-  
+  //pagename is passed in as a prop from the relevant page.js. The value of pagename decides what page component is displayed. 
+  //Staffname is passed as a prop to the dashboard and header. 
+  //Allfetcheddataaboutspecificsu is passed from displayallsu to the authrouter and from there to displayonesu
   switch (pageName) {
     case "dashboard":
       return <> 
