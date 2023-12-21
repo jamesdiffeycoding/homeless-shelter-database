@@ -1,7 +1,5 @@
 const { defineConfig } = require("cypress");
 
-require('dotenv').config({ path: ".env.local" }); // Move this line here
-
 module.exports = defineConfig({
   component: {
     devServer: {
