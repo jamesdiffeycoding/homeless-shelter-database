@@ -7,4 +7,13 @@ module.exports = defineConfig({
       bundler: "webpack",
     },
   },
+
+  e2e: {
+    baseUrl: 'https://shelterapp-homehorizon.onrender.com/',
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+  },
+
 });
+
