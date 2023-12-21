@@ -1,6 +1,7 @@
 @media screen and (max-width: 600px) {
     .global-content{
        min-width: 450px; 
+       max-width: 100%;
     }
 }
 
