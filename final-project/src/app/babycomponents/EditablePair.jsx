@@ -60,9 +60,9 @@ switch (table) {
   case "comments": setInputComments(commentsColumns[column]=event.target.value); break;
   default: break; } };
 
-let inputValue=""; // blank initial input value to ensure global scope
-
-// SWITCH STATEMENT TO DEFINE THE INPUT, THIS AIDS THE GENERALISABILITY OF INPUT BOX 
+  
+  // SWITCH STATEMENT TO DEFINE THE INPUT, THIS AIDS THE GENERALISABILITY OF INPUT BOX 
+  let inputValue=""; // blank initial input value to ensure global scope
 switch (table) {
   case "service_users": inputValue=inputProfile[column]; break;
   case "strengths": inputValue=inputStrengths[column]; break;

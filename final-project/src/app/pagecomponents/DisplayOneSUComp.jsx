@@ -20,14 +20,7 @@ export default function DisplayOneSUComp({ allFetchedDataAboutSpecificSU }) {
 // DESTRUCTURING ALLFETCHEDDATAABOUTSPECIFIC SU
 // This allows us to more concisely write code in this file to, for example, display the SU's name and interests.
 // ---- For example instead of writing "allFetchedDataAboutSpecificSU.strengths", we can just write "strengths"
-  const {
-    service_users,
-    strengths,
-    medical,
-    employment_status,
-    residence,
-    comments,
-  } = allFetchedDataAboutSpecificSU;
+  const { service_users, strengths, medical, employment_status, residence, comments, } = allFetchedDataAboutSpecificSU;
 
 // DECLARATION OF USERID VALUE, WHICH WILL BE PASSED AS A PROP IN EVERY USECONTEXT() FUNCTION AND SUPABASEUPDATEORINSERTDATA() QUERY BELOW
   let userID = allFetchedDataAboutSpecificSU.service_users[0].user_id;
