@@ -91,7 +91,7 @@ export default function AuthRouter({
       <div className="flexbox-center"><h1 data-test="hero-heading" className="white-font">Home Horizon</h1>
       </div>
 
-      //this is where you can customise the display of the supabase auth.
+      {/* this is where you can customise the display of the supabase auth. */}
       <Auth supabaseClient={supabase} appearance={{
             theme: ThemeSupa,
             variables: {
