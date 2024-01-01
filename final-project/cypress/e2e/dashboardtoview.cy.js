@@ -32,7 +32,7 @@ it('enters staff details and logs in to the dashboard', function () {
 
   // ...rest of your test
 
-  cy.url().should('include', 'https://shelterapp-homehorizon.onrender.com/');
+  cy.url().should('include', 'http://localhost:3000');
 
   // cy.get('.3-button1.dash-grid-row-').click();
 

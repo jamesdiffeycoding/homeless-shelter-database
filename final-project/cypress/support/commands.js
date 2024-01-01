@@ -30,7 +30,7 @@ Cypress.Commands.add("getByData", (selector)=> {
 
 
   Cypress.Commands.add('login', (username, password) => {
-    cy.visit('/')
+    cy.visit('http://localhost:3000')
     // cy.contains('email').type(username);
   
     cy.get('input[name=email]').type(username)
