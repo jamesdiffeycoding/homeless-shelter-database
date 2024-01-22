@@ -1,7 +1,6 @@
 # HOME HORIZON `Coders4Chanage`
 ![](image-1.png)
 
-gravitar - website where people add images, what email is used depeds on the lgin, the wedsite pulls 
 
 Deployment Link: https://shelterapp-homehorizon.onrender.com
 
@@ -30,7 +29,7 @@ Current app features:
 - Staff can see all the service users on the database by tapping on the "View or Edit database"
 - 
 ## BUGS BUGS BUGS
-
+- Issues with editing new users and adding comments.
 
 
 
@@ -71,7 +70,7 @@ Only one component test is currently setup
 ## PACKAGES
 Next, for scaffolding
 Cypress, for testing
-Sonnen Toaster, for pop-up notifications(toasts)
+Sonner, for pop-up notifications(toasts)
 
 ## CACHING
 To minimise the problematic effects of caching (such as edited service user data not updating), workarounds have been used.
