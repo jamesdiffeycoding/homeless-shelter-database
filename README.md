@@ -1,6 +1,4 @@
-# HOME HORIZON `Coders4Chanage`
-![](image*1.png)
-
+# HOME HORIZON - Homless Shelter Application by Coders for Change
 Deployment Link: https://shelterapp*homehorizon.onrender.com
 
 ## CREDITS AND CONTACTS
@@ -95,9 +93,9 @@ To minimise the problematic effects of caching (such as edited service user data
 * Adding data
   * A simple supabase insert function tied to the input fields. 
 * Editing data
-  ** Setting a state (called “suData”) equal to the context (which equals AllFetchedData…) and providing it to all the EditablePairs and Update Button enable us to have just one Update. Button that sends the request to the database with all the values from each individual Editable Pair
-  ** This code is scattered between the displayOneSu file and the editablePair Component files.
+  * Setting a state (called “suData”) equal to the context (which equals AllFetchedData…) and providing it to all the EditablePairs and Update Button enable us to have just one Update. Button that sends the request to the database with all the values from each individual Editable Pair
+  * This code is scattered between the displayOneSu file and the editablePair Component files.
 Whenever you type in the input boxes, it updates the columns of its respective data table (eg Strengths) with the new value within the suData state.
-  ** When the update button is pressed, it takes the new value of suData and sends the respective data table’s portion of it (e.g. Strengths) to the database
+  * When the update button is pressed, it takes the new value of suData and sends the respective data table’s portion of it (e.g. Strengths) to the database
 
 
