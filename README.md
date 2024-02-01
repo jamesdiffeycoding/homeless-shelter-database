@@ -25,7 +25,7 @@ Current app features:
 * Staff can successfully login after being provided with login credentials from upper management
 * Staff can see all the service users on the database by tapping on the "View or Edit database"
 
-## Folder structure
+## FOLDER STRUCTURE
 * Public folder
   * Contains all images for the site. No images are fetched from the web due to load times.
 * AuthRouter.jsx file
