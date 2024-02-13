@@ -1,4 +1,10 @@
+
+# HOME HORIZON `Coders4Chanage`
+![](image-1.png)
+
+
 # HOME HORIZON - Homless Shelter Application by Coders for Change
+
 Deployment Link: https://shelterapp-homehorizon.onrender.com
 
 ## CREDITS AND CONTACTS
@@ -22,6 +28,33 @@ Supabase is an open source databsase aservice alternative to firebase. Is a web 
 
 ## APP FEATURES
 Current app features:
+- Staff can successfully login after being provided with login credentials from upper management
+- Staff can see all the service users on the database by tapping on the "View or Edit database"
+- 
+## BUGS BUGS BUGS
+- Issues with editing new users and adding comments.
+
+
+
+## Setup
+
+Create Next App
+Authentication
+- Every page on the site is Auth-guarded so there is no way to bypass the login.
+Folder structure
+- Public folder
+  - Contains all images for the site. No images are fetched from the web due to load times.
+- AuthRouter.jsx file
+  - This Auth Router checks that the client is logged in before returning the request page component[Title](https://ca.slack-edge.com/T6L933W4X-U05NQKY5NP5-g406ffaf1f78-512)
+- Page components folder
+  - These page component files represent entire web pages. They correspond to the page.js files which request them via a prop sent to the Auth Router. 
+- Baby components folder
+  - These ‘baby components’ are differentiated from the page components because they are used within pages rather than being whole pages in thmeelves.
+  - They often help to make the code cleaner by providing reusability, perhaps most notably the “header.jsx” file, the “footer.jsx” file and the “editablePair.jsx” file
+ - Src/app folder contains….
+  -  Folders for each page of the website (e.g. “displayallsu” folder, with corresponding “page.js” file)
+  - Dynamic routing within the “displayallsu” folder with the folder name “[id]”
+  -These “/displayallsu/id” pages are populated using the generateStaticParams function
 * Staff can successfully login after being provided with login credentials from upper management
 * Staff can see all the service users on the database by tapping on the "View or Edit database"
 
@@ -39,7 +72,7 @@ Current app features:
   *  Folders for each page of the website (e.g. “displayallsu” folder, with corresponding “page.js” file)
   * Dynamic routing within the “displayallsu” folder with the folder name “[id]”
   *These “/displayallsu/id” pages are populated using the generateStaticParams function
-Folders for the page components each page loads (if the Auth Router approves the session)
+  *Folders for the page components each page loads (if the Auth Router approves the session)
 
 ## STYLING
 * Every page component has the same structure that incorporate some “global styles” to ensure consistency throughout the webpages. The basic structure is a welcome container at the top for the heading, and a content container with a white glowing box.
@@ -52,9 +85,9 @@ Only one component test is currently setup
 * The latest version of cypress (13.6.1) is unstable, .0 seems better. Next must be 13.0.0 originally to setup tests.
 
 ## PACKAGES
-Next, for scaffolding
-Cypress, for testing
-Sonnen Toaster, for pop*up notifications(toasts)
+Next, for scaffolding \
+Cypress, for testing \
+Sonner, for pop-up notifications(toasts)
 
 ## CACHING
 To minimise the problematic effects of caching (such as edited service user data not updating), workarounds have been used.
