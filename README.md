@@ -1,4 +1,4 @@
-# HOME HORIZON `Coders4Chanage`
+# HOME HORIZON `Coders4Change`
 ![](image-1.png)
 
 
@@ -27,10 +27,10 @@ Supabase is an open source databsase aservice alternative to firebase. Is a web 
 Current app features:
 - Staff can successfully login after being provided with login credentials from upper management
 - Staff can see all the service users on the database by tapping on the "View or Edit database"
-- 
+  
 ## BUGS BUGS BUGS
 - Issues with editing new users and adding comments.
-
+- Data validation 
 
 
 ## Setup
@@ -68,9 +68,9 @@ Only one component test is currently setup
 
 
 ## PACKAGES
-Next, for scaffolding
-Cypress, for testing
-Sonner, for pop-up notifications(toasts)
+- Next, for scaffolding 
+- Cypress, for testing 
+- Sonner, for pop-up notifications(toasts)
 
 ## CACHING
 To minimise the problematic effects of caching (such as edited service user data not updating), workarounds have been used.
