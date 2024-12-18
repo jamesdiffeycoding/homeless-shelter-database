@@ -5,7 +5,6 @@
 
 # HOME HORIZON - Homless Shelter Application by Coders for Change
 
-Deployment Link: https://shelterapp-homehorizon.onrender.com
 
 ## CREDITS AND CONTACTS
 This mobile first application was made by Sara Thampi, James Diffey, Alexander Carr, Victoria Eyres, Jasim Chowdhury and Matthew Kirke as a part of School of Code 15th Bootcamp (Final Project)
